@@ -8,8 +8,10 @@ const randomNickname = faker.internet.userName();
 const randomPassword = faker.internet.password();
 
 describe('Registration', () => {
-    it('should correctly register a new user', async () => {
+    before(async () =>{
         await registerPage.openSignUp();
+    })
+    it('should correctly register a new user', async () => {
         await registerPage.register(`${randomFirstName}`, `${randomLastName}`, `${randomNickname}`, `${randomPassword}`);
         await expect(browser).toHaveUrl(`${process.env.ENV}signin`);
         await loginPage.login(`${randomNickname}`, `${randomPassword}`);
