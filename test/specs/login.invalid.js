@@ -6,7 +6,7 @@ const randomPassword = faker.internet.password();
 
 describe('Invalid login with error message', () => {
     it('should not login with invalid credentials', async () => {
-        await loginPage.open();
+        await loginPage.openSignIn();
         await loginPage.login(`${randomNickname}`, `${randomPassword}`);
         await expect(browser).toHaveUrl(`${process.env.ENV}signin`);
         await expect(loginPage.loginError).toBeDisplayed();

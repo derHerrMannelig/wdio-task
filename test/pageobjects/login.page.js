@@ -23,8 +23,11 @@ class LoginPage extends Page {
         await this.btnSubmit.click();
     }
 
-    open () {
+    openSignIn () {
         return super.open('signin');
+    }
+    openBaseUrl () {
+        return super.open('');
     }
 }
 
