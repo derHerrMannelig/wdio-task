@@ -17,6 +17,10 @@ class LoginPage extends Page {
         return $('div[role="alert"]');
     }
 
+    get usernameHelper () {
+        return $('p#username-helper-text');
+    }
+
     async login (username, password) {
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);
