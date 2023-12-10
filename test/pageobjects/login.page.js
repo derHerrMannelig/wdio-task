@@ -21,6 +21,10 @@ class LoginPage extends Page {
         return $('p#username-helper-text');
     }
 
+    get footerLink () {
+        return $('a[rel="noopener noreferrer"]');
+    }
+
     async login (username, password) {
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);
