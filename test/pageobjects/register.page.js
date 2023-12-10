@@ -25,6 +25,10 @@ class RegisterPage extends Page {
         return $('button[type="submit"]');
     }
 
+    get registerError () {
+        return $('div[role="alert"]');
+    }
+
     async register (firstName, lastName, username, password) {
         await this.inputFirstName.setValue(firstName);
         await this.inputLastName.setValue(lastName);
