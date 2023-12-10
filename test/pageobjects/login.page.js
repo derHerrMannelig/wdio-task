@@ -13,6 +13,10 @@ class LoginPage extends Page {
         return $('button[type="submit"]');
     }
 
+    get loginError () {
+        return $('div[role="alert"]');
+    }
+
     async login (username, password) {
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);
