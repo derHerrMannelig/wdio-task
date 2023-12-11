@@ -25,6 +25,21 @@ class MainPage extends Page {
     get logoutMenu () {
         return $('div[data-test="sidenav-signout"]');
     }
+    get notificationsHeader () {
+        return $('a[data-test="nav-top-notifications-link"]');
+    }
+    get newHeader () {
+        return $('a[data-test="nav-top-new-transaction"]');
+    }
+    get logoHeader () {
+        return $('h1 > a');
+    }
+    get burgerHeader () {
+        return $('button[data-test="sidenav-toggle"]');
+    }
+    get menuWrapper () {
+        return $('div[data-test="sidenav"] > div');
+    }
 }
 
 export default new MainPage();
