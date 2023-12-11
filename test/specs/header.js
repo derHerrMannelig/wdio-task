@@ -2,12 +2,12 @@ import loginPage from '../pageobjects/login.page.js';
 import mainPage from '../pageobjects/main.page.js';
 import testData from '../fixtures/data.json' assert { type: 'json' };
 
-describe('Main page menu', () => {
+describe('Header links', () => {
     before(async () =>{
         await loginPage.openSignIn();
         await loginPage.login(`${testData.user.nickname}`, `${testData.user.password}`);
     })
-    it('should validate menu functionality', async () => {
+    it('should validate header links', async () => {
         await mainPage.notificationsHeader.click();
         await expect(browser).toHaveUrl(`${process.env.ENV}notifications`);
         await mainPage.newHeader.click();
