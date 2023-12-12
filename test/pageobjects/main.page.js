@@ -40,6 +40,54 @@ class MainPage extends Page {
     get menuWrapper () {
         return $('div[data-test="sidenav"] > div');
     }
+    get inputFirstName () {
+        return $('input#user-settings-firstName-input');
+    }
+    get inputLastName () {
+        return $('input#user-settings-lastName-input');
+    }
+    get inputEmail () {
+        return $('input#user-settings-email-input');
+    }
+    get inputPhone () {
+        return $('input#user-settings-phoneNumber-input');
+    }
+    get btnSubmitEdit () {
+        return $('button[data-test="user-settings-submit"]');
+    }
+
+    async clearUser () {
+        // wrote this abomination because clearValue() doesn't work in this web app
+        // similar problem: https://github.com/webdriverio/webdriverio/issues/4482
+        let FNameLength = (await this.inputFirstName.getValue()).length;
+        let LNameLength = (await this.inputLastName.getValue()).length;
+        let emailLength = (await this.inputEmail.getValue()).length;
+        let phoneLength = (await this.inputPhone.getValue()).length;
+        await this.inputFirstName.click();
+        for (let i = 0; i < FNameLength; i++) {
+            await this.inputFirstName.addValue('\ue003\ue017');
+        }
+        await this.inputLastName.click();
+        for (let i = 0; i < LNameLength; i++) {
+            await this.inputLastName.addValue('\ue003\ue017');
+        }
+        await this.inputEmail.click();
+        for (let i = 0; i < emailLength; i++) {
+            await this.inputEmail.addValue('\ue003\ue017');
+        }
+        await this.inputPhone.click();
+        for (let i = 0; i < phoneLength; i++) {
+            await this.inputPhone.addValue('\ue003\ue017');
+        }
+    }
+
+    async editUser (firstName, lastName, email, phone) {
+        await this.inputFirstName.setValue(firstName);
+        await this.inputLastName.setValue(lastName);
+        await this.inputEmail.setValue(email);
+        await this.inputPhone.setValue(phone);
+        await this.btnSubmitEdit.click();
+    }
 }
 
 export default new MainPage();
