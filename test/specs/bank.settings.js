@@ -12,7 +12,7 @@ describe('Bank settings', () => {
         await loginPage.openSignIn();
         await loginPage.login(`${testData.user.nickname}`, `${testData.user.password}`);
     })
-    it('should validate new bank account creation', async () => {
+    it('should validate actions with bank settings', async () => {
         await mainPage.bankMenu.click();
         await mainPage.btnNewBank.click();
         await expect(browser).toHaveUrl(`${process.env.ENV}bankaccounts/new`);
