@@ -82,6 +82,17 @@ class MainPage extends Page {
     get btnNext () {
         return $('button[data-test="user-onboarding-next"]');
     }
+    get notificationsSvg () {
+        return $('span.MuiBadge-badge.makeStyles-customBadge-28');
+    }
+    get notificationItems () {
+        return $$('li.MuiListItem-root');
+    }
+
+    async notificationsQuantity () {
+        const notifications = await this.notificationItems;
+        return notifications.length;
+    }
 
     async newBank (bankName, routingNumber, accountNumber) {
         await this.inputBankName.setValue(bankName);
