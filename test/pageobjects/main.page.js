@@ -55,6 +55,45 @@ class MainPage extends Page {
     get btnSubmitEdit () {
         return $('button[data-test="user-settings-submit"]');
     }
+    get btnNewBank () {
+        return $('a[data-test="bankaccount-new"]');
+    }
+    get inputBankName () {
+        return $('input#bankaccount-bankName-input');
+    }
+    get inputRoutingNumber () {
+        return $('input#bankaccount-routingNumber-input');
+    }
+    get inputAccountNumber () {
+        return $('input#bankaccount-accountNumber-input');
+    }
+    get btnSubmitBank () {
+        return $('button[data-test="bankaccount-submit"]')
+    }
+    get btnsDeleteBank() {
+        return $$('button[data-test="bankaccount-delete"]');
+    }
+    get bankEntries() {
+        return $$('div > p.MuiTypography-body1');
+    }
+
+    async newBank (bankName, routingNumber, accountNumber) {
+        await this.inputBankName.setValue(bankName);
+        await this.inputRoutingNumber.setValue(routingNumber);
+        await this.inputAccountNumber.setValue(accountNumber);
+        await this.btnSubmitBank.click();
+    }
+
+    async clickDeleteLastBank () {
+        await browser.pause(1000); //necessary, because it occasionally can delete predating one w/o pause
+        const btns = await this.btnsDeleteBank;
+        await btns[btns.length - 1].click();
+    }
+    async newBankEntry () {
+        await browser.pause(1000);
+        const banks = await this.bankEntries;
+        return banks[banks.length - 1];
+    }
 
     async clearUser () {
         // wrote this abomination because clearValue() doesn't work in this web app
