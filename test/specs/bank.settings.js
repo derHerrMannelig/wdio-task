@@ -7,12 +7,12 @@ const randomBank = faker.lorem.sentence(4);
 const randomRouting = faker.finance.routingNumber();
 const randomAccount = faker.finance.accountNumber(9);
 
-describe('Main page menu', () => {
+describe('Bank settings', () => {
     before(async () =>{
         await loginPage.openSignIn();
         await loginPage.login(`${testData.user.nickname}`, `${testData.user.password}`);
     })
-    it('should validate menu functionality', async () => {
+    it('should validate new bank account creation', async () => {
         await mainPage.bankMenu.click();
         await mainPage.btnNewBank.click();
         await expect(browser).toHaveUrl(`${process.env.ENV}bankaccounts/new`);
