@@ -76,6 +76,12 @@ class MainPage extends Page {
     get bankEntries() {
         return $$('div > p.MuiTypography-body1');
     }
+    get newUserModal() {
+        return $('div[role="dialog"]');
+    }
+    get btnNext () {
+        return $('button[data-test="user-onboarding-next"]');
+    }
 
     async newBank (bankName, routingNumber, accountNumber) {
         await this.inputBankName.setValue(bankName);
