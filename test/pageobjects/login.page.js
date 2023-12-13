@@ -25,10 +25,21 @@ class LoginPage extends Page {
         return $('a[rel="noopener noreferrer"]');
     }
 
+    get linkSignUp () {
+        return $('a[data-test="signup"]');
+    }
+
     async login (username, password) {
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);
         await this.btnSubmit.click();
+    }
+
+    async redirectToSignUp () {
+        await this.linkSignUp.click();
+        if (await browser.getUrl() == `${process.env.ENV}signin`) {
+            await this.linkSignUp.click();
+        }
     }
 
     openSignIn () {

@@ -29,6 +29,10 @@ class RegisterPage extends Page {
         return $('div[role="alert"]');
     }
 
+    get linkSignIn () {
+        return $('a[href="/signin"]');
+    }
+
     async register (firstName, lastName, username, password) {
         await this.inputFirstName.setValue(firstName);
         await this.inputLastName.setValue(lastName);
@@ -36,6 +40,13 @@ class RegisterPage extends Page {
         await this.inputPassword.setValue(password);
         await this.inputPasswordConfirmation.setValue(password);
         await this.btnSubmit.click();
+    }
+
+    async redirectToSignIn () {
+        await this.linkSignIn.click();
+        if (await browser.getUrl() == `${process.env.ENV}signup`) {
+            await this.linkSignIn.click();
+        }
     }
 
     openSignUp () {
