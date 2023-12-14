@@ -1,0 +1,22 @@
+import loginPage from '../pageobjects/login.page.js';
+import mainPage from '../pageobjects/main.page.js';
+import transactionPage from '../pageobjects/transaction.page.js';
+import testData from '../fixtures/data.json' assert { type: 'json' };
+import { faker } from '@faker-js/faker';
+
+const randomAmount = faker.number.int({ max: 999 })
+const randomNote = faker.lorem.sentence(4);
+
+describe('Transaction: request', () => {
+    before(async () =>{
+        await loginPage.openSignIn();
+        await loginPage.login(`${testData.user.nickname}`, `${testData.user.password}`);
+    })
+    it('should validate request transaction', async () => {
+        await mainPage.newHeader.click();
+        await transactionPage.chooseRandomGuy();
+        await transactionPage.fillTransactionInfo(randomAmount, randomNote);
+        await transactionPage.btnRequest.click();
+        await expect(await transactionPage.getTransactionInfo()).toHaveText(`Requested $${randomAmount}.00 for ${randomNote}`);
+    })
+})
