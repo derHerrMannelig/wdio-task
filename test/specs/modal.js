@@ -21,6 +21,7 @@ describe('"Get started" modal', () => {
         await expect(mainPage.newUserModal).toBeDisplayed();
         await mainPage.btnNext.click();
         await mainPage.newBank(randomBank, randomRouting, randomAccount);
+        await mainPage.btnSubmitBank.click();
         await mainPage.btnNext.click();
         await mainPage.bankMenu.click();
         await expect(await mainPage.newBankEntry()).toHaveTextContaining(`${randomBank}`);

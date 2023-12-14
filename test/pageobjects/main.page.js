@@ -88,6 +88,15 @@ class MainPage extends Page {
     get notificationItems () {
         return $$('li.MuiListItem-root');
     }
+    get bankNameHelper () {
+        return $('#bankaccount-bankName-input-helper-text');
+    }
+    get routingNumberHelper () {
+        return $('#bankaccount-routingNumber-input-helper-text');
+    }
+    get accountNumberHelper () {
+        return $('#bankaccount-accountNumber-input-helper-text');
+    }
 
     async notificationsQuantity () {
         const notifications = await this.notificationItems;
@@ -98,7 +107,6 @@ class MainPage extends Page {
         await this.inputBankName.setValue(bankName);
         await this.inputRoutingNumber.setValue(routingNumber);
         await this.inputAccountNumber.setValue(accountNumber);
-        await this.btnSubmitBank.click();
     }
 
     async clickDeleteLastBank () {

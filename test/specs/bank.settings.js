@@ -17,6 +17,7 @@ describe('Bank settings', () => {
         await mainPage.btnNewBank.click();
         await expect(browser).toHaveUrl(`${process.env.ENV}bankaccounts/new`);
         await mainPage.newBank(randomBank, randomRouting, randomAccount);
+        await mainPage.btnSubmitBank.click();
         await expect(browser).toHaveUrl(`${process.env.ENV}bankaccounts`);
         await expect(await mainPage.newBankEntry()).toHaveTextContaining(`${randomBank}`);
         await mainPage.clickDeleteLastBank();
