@@ -8,12 +8,12 @@ const randomLName = faker.person.lastName();
 const randomEmail = faker.internet.email();
 const randomPhone = faker.string.numeric(10);
 
-describe('Main page menu', () => {
+describe('User settings', () => {
     before(async () =>{
         await loginPage.openSignIn();
         await loginPage.login(`${testData.user.nickname}`, `${testData.user.password}`);
     })
-    it('should validate menu functionality', async () => {
+    it('should validate user settings functionality', async () => {
         await mainPage.accountMenu.click();
         await mainPage.clearUser();
         await mainPage.editUser(randomFName, randomLName, randomEmail, randomPhone);
