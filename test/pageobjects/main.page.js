@@ -97,6 +97,33 @@ class MainPage extends Page {
     get accountNumberHelper () {
         return $('#bankaccount-accountNumber-input-helper-text');
     }
+    get paymentItems () {
+        return $$('div > li.MuiListItem-root');
+    }
+    get inputComment () {
+        return $('input[type="text"]');
+    }
+    get commentItems () {
+        return $$('li > div > span.MuiListItemText-primary');
+    }
+
+    async chooseRandomPayment () {
+        await browser.pause(1000);
+        const payments = await this.paymentItems;
+        let randPayment = Math.floor(Math.random() * payments.length);
+        await payments[randPayment].click();
+    }
+
+    async leaveComment (text) {
+        await this.inputComment.addValue(text);
+        await browser.keys("Enter");
+        await browser.pause(1000);
+    }
+
+    async recentComment() {
+        const comments = await this.commentItems;
+        return comments[comments.length - 1];
+    }
 
     async notificationsQuantity () {
         const notifications = await this.notificationItems;
