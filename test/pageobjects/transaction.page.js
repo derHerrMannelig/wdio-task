@@ -1,6 +1,9 @@
 import Page from './page.js'
 
 class TransactionPage extends Page {
+    get transactionGuysList () {
+        return $('ul[data-test="users-list"]');
+    }
     get transactionGuys () {
         return $$('ul[data-test="users-list"] > li');
     }
@@ -23,6 +26,14 @@ class TransactionPage extends Page {
 
     get transactionH2s () {
         return $$('div > h2');
+    }
+
+    get toAnotherTransaction () {
+        return $('button[data-test="new-transaction-create-another-transaction"]');
+    }
+
+    get toMainPage () {
+        return $('a[data-test="new-transaction-return-to-transactions"]');
     }
 
     async chooseRandomGuy () {
