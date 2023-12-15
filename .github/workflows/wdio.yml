@@ -25,7 +25,7 @@ jobs:
         - name: Wait for server to start
           run: sleep 20
         - name: Run tests
-          run: cross-env ENV=http://localhost:3000/ wdio run ./chrome.wdio.conf.js && npx allure generate allure-results-chrome -o allure-report --clean || npx allure generate allure-results-chrome -o allure-report --clean
+          run: npx cross-env ENV=http://localhost:3000/ wdio run ./chrome.wdio.conf.js && npx allure generate allure-results-chrome -o allure-report --clean || npx allure generate allure-results-chrome -o allure-report --clean
         - name: Deploy report to GitHub Pages
           uses: peaceiris/actions-gh-pages@v3
           with:
