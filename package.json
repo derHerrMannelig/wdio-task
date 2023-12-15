@@ -1,0 +1,20 @@
+{
+  "name": "my-new-project",
+  "type": "module",
+  "devDependencies": {
+    "@faker-js/faker": "^8.3.1",
+    "@wdio/allure-reporter": "^8.24.12",
+    "@wdio/cli": "^8.26.0",
+    "@wdio/local-runner": "^8.26.0",
+    "@wdio/mocha-framework": "^8.24.12",
+    "@wdio/spec-reporter": "^8.24.12",
+    "allure-commandline": "^2.25.0",
+    "cross-env": "^7.0.3"
+  },
+  "scripts": {
+    "wdio:chrome": "cross-env ENV=http://localhost:3000/ wdio run ./chrome.wdio.conf.js && npx allure generate allure-results-chrome -o allure-report --clean && npx allure open allure-report || npx allure generate allure-results-chrome -o allure-report --clean && npx allure open allure-report",
+    "wdio:edge": "cross-env ENV=http://localhost:3000/ wdio run ./edge.wdio.conf.js && npx allure generate allure-results-edge -o allure-report --clean && npx allure open allure-report || npx allure generate allure-results-edge -o allure-report --clean && npx allure open allure-report",
+    "wdio:firefox": "cross-env ENV=http://localhost:3000/ wdio run ./firefox.wdio.conf.js && npx allure generate allure-results-firefox -o allure-report --clean && npx allure open allure-report || npx allure generate allure-results-firefox -o allure-report --clean && npx allure open allure-report",
+    "wdio:spec": "cross-env ENV=http://localhost:3000/ wdio run ./spec.wdio.conf.js --spec"
+  }
+}
