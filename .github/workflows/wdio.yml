@@ -20,11 +20,12 @@ jobs:
           run: git clone https://github.com/cypress-io/cypress-realworld-app.git
         - name: Install deps for web app
           run: cd cypress-realworld-app && yarn install
-        - name: Start local server and run tests
-          run: |
-              cd cypress-realworld-app && yarn dev &
-              sleep 20 &&
-              cd .. && npm run wdio:chrome
+        - name: Start local server
+          run: cd cypress-realworld-app && yarn dev &
+        - name: Wait for server to start
+          run: sleep 20
+        - name: Run tests
+          run: npm run wdio:chrome
         - name: Deploy report to GitHub Pages
           uses: peaceiris/actions-gh-pages@v3
           with:
