@@ -21,7 +21,10 @@ jobs:
         - name: Install deps for web app
           run: cd cypress-realworld-app && yarn install
         - name: Start local server
-          run: cd cypress-realworld-app && yarn dev
+          run: |
+              cd cypress-realworld-app
+              yarn dev > /dev/null 2>&1 &
+              while ! curl -s http://localhost:3001; do sleep 5; done
         - name: Run tests
           run: npm run wdio:chrome
         - name: Deploy report to GitHub Pages
