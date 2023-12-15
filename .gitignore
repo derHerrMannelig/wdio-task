@@ -131,4 +131,7 @@ dist
 
 # allure
 allure-results/
+allure-results-chrome/
+allure-results-edge/
+allure-results-firefox/
 allure-report/

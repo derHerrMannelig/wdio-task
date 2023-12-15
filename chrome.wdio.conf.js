@@ -51,7 +51,7 @@ export const config = {
     // https://saucelabs.com/platform/platform-configurator
     //
     capabilities: [{
-        browserName: 'firefox'
+        browserName: 'chrome'
     }],
 
     //
@@ -125,7 +125,7 @@ export const config = {
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
     reporters: [
-        ['allure', {outputDir: 'allure-results-firefox'}]
+        ['allure', {outputDir: 'allure-results-chrome'}]
     ],
 
     // Options to be passed to Mocha.

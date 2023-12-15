@@ -51,7 +51,7 @@ export const config = {
     // https://saucelabs.com/platform/platform-configurator
     //
     capabilities: [{
-        browserName: 'chrome'
+        browserName: 'MicrosoftEdge'
     }],
 
     //
@@ -125,7 +125,7 @@ export const config = {
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
     reporters: [
-        ['allure', {outputDir: 'allure-results'}]
+        ['allure', {outputDir: 'allure-results-edge'}]
     ],
 
     // Options to be passed to Mocha.
