@@ -12,6 +12,7 @@
     "cross-env": "^7.0.3"
   },
   "scripts": {
-    "wdio:main": "cross-env ENV=http://localhost:3000/ wdio run ./main.wdio.conf.js && npx allure generate allure-results -o allure-report --clean && npx allure open allure-report || npx allure generate allure-results -o allure-report --clean && npx allure open allure-report"
+    "wdio:main": "cross-env ENV=http://localhost:3000/ wdio run ./main.wdio.conf.js && npx allure generate allure-results -o allure-report --clean && npx allure open allure-report || npx allure generate allure-results -o allure-report --clean && npx allure open allure-report",
+    "wdio:spec": "cross-env ENV=http://localhost:3000/ wdio run ./spec.wdio.conf.js --spec"
   }
 }
