@@ -2,7 +2,7 @@ name: End-to-end tests
 on: push
 jobs:
   run-tests:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
         - name: Checkout
@@ -14,7 +14,10 @@ jobs:
             node-version: 18
 
         - name: Install Java 8
-          run: choco install openjdk8
+          uses: actions/setup-java@v4
+          with:
+            distribution: 'oracle'
+            java-version: '8'
 
         - name: Install yarn
           run: npm install -g yarn
@@ -29,7 +32,7 @@ jobs:
           run: cd cypress-realworld-app && yarn install
 
         - name: Start local server
-          run: cd cypress-realworld-app && yarn dev & sleep 20
+          run: cd cypress-realworld-app && yarn dev & sleep 20 && curl http://localhost:3000
 
         - name: Run tests
           run: npx cross-env ENV=http://localhost:3000/ wdio run ./headless.wdio.conf.js && npx allure generate allure-results-chrome -o allure-report --clean || npx allure generate allure-results-chrome -o allure-report --clean
