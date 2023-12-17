@@ -1,0 +1,4 @@
+{
+  "using": "css selector",
+  "value": "span.MuiBadge-badge.makeStyles-customBadge-28"
+}

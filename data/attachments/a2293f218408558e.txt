@@ -1,0 +1,5 @@
+{
+  "error": "no such element",
+  "message": "no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"p#username-helper-text\"}\n  (Session info: chrome-headless-shell=120.0.6099.71)",
+  "stacktrace": "#0 0x55e93ed2fd33 <unknown>\n#1 0x55e93e9ecf87 <unknown>\n#2 0x55e93ea3cc0e <unknown>\n#3 0x55e93ea3cd11 <unknown>\n#4 0x55e93ea88004 <unknown>\n#5 0x55e93ea6636d <unknown>\n#6 0x55e93ea85297 <unknown>\n#7 0x55e93ea660e3 <unknown>\n#8 0x55e93ea2e044 <unknown>\n#9 0x55e93ea2f44e <unknown>\n#10 0x55e93ecf4861 <unknown>\n#11 0x55e93ecf8785 <unknown>\n#12 0x55e93ece2285 <unknown>\n#13 0x55e93ecf941f <unknown>\n#14 0x55e93ecc620f <unknown>\n#15 0x55e93ed1d028 <unknown>\n#16 0x55e93ed1d1f7 <unknown>\n#17 0x55e93ed2eed4 <unknown>\n#18 0x7fbf8fe94ac3 <unknown>\n"
+}
