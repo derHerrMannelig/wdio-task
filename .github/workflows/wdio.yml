@@ -38,8 +38,7 @@ jobs:
           run: npx cross-env ENV=http://localhost:3000/ wdio run ./headless.wdio.conf.js && npx allure generate allure-results-headless -o allure-report --clean || npx allure generate allure-results-headless -o allure-report --clean
 
         - name: Deploy report to GitHub Pages
-          uses: peaceiris/actions-gh-pages@v3
+          uses: JamesIves/github-pages-deploy-action@4.1.4
           with:
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-            publish_branch: gh-pages
-            publish_dir: allure-report
+            branch: gh-pages
+            folder: allure-report
