@@ -19,7 +19,7 @@ There are multiple launch options:
 4. `npm run wdio:headless` — run all tests in Chrome in headless mode, reporter: Allure;
 5. `npm run wdio:spec *any file from specs folder*` — run single specific test in Chrome, reporter: spec.
 ## Known issues:
-- For some reason, during pipeline run tests can't access tested website.
+- ~~For some reason, during pipeline run tests can't access tested website.~~ Fixed.
 ## To submit a bug report:
 Navigate into **Issues** tab, click on "**New issue**" button. Follow this template:
 1. Title;
