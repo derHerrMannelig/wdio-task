@@ -134,4 +134,5 @@ allure-results/
 allure-results-chrome/
 allure-results-edge/
 allure-results-firefox/
+allure-results-headless/
 allure-report/

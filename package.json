@@ -15,6 +15,7 @@
     "wdio:chrome": "cross-env ENV=http://localhost:3000/ wdio run ./chrome.wdio.conf.js && npx allure generate allure-results-chrome -o allure-report --clean && npx allure open allure-report || npx allure generate allure-results-chrome -o allure-report --clean && npx allure open allure-report",
     "wdio:edge": "cross-env ENV=http://localhost:3000/ wdio run ./edge.wdio.conf.js && npx allure generate allure-results-edge -o allure-report --clean && npx allure open allure-report || npx allure generate allure-results-edge -o allure-report --clean && npx allure open allure-report",
     "wdio:firefox": "cross-env ENV=http://localhost:3000/ wdio run ./firefox.wdio.conf.js && npx allure generate allure-results-firefox -o allure-report --clean && npx allure open allure-report || npx allure generate allure-results-firefox -o allure-report --clean && npx allure open allure-report",
+    "wdio:headless": "cross-env ENV=http://localhost:3000/ wdio run ./headless.wdio.conf.js && npx allure generate allure-results-headless -o allure-report --clean && npx allure open allure-report || npx allure generate allure-results-headless -o allure-report --clean && npx allure open allure-report",
     "wdio:spec": "cross-env ENV=http://localhost:3000/ wdio run ./spec.wdio.conf.js --spec"
   }
 }

@@ -8,14 +8,16 @@ This is repository for WebdriverIO task.
 [Node LTS](https://nodejs.org/) (18.14.2 or higher)  
 [Java](https://www.oracle.com/java/technologies/downloads/#java8) (8 or higher)  
 ## Installation
-1. Run `npm install`
-2. You're good to go!
+1. Follow instructions from [this page](https://learn.cypress.io/real-world-examples/cypress-real-world-app-overview) to get running tested website locally;
+2. Clone this repo, run `npm install`;
+3. You're good to go!
 ## Tests launch
 There are multiple launch options:
-1. `npm run wdio:chrome` — run all tests in Chrome;
-2. `npm run wdio:firefox` — run all tests in Firefox;
-3. `npm run wdio:edge` — run all tests in Edge;
-4. `npm run wdio:spec *any file from specs folder*` — run single specific test in Chrome.
+1. `npm run wdio:chrome` — run all tests in Chrome, reporter: Allure;
+2. `npm run wdio:firefox` — run all tests in Firefox, reporter: Allure;
+3. `npm run wdio:edge` — run all tests in Edge, reporter: Allure;
+4. `npm run wdio:headless` — run all tests in Chrome in headless mode, reporter: Allure;
+5. `npm run wdio:spec *any file from specs folder*` — run single specific test in Chrome, reporter: spec.
 ## Known issues:
 - For some reason, during pipeline run tests can't access tested website.
 ## To submit a bug report:
